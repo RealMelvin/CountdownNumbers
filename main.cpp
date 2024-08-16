@@ -125,17 +125,19 @@ class numberSolver
                 
 
 
-                // //SUBTRACTION
-                // startingValue = inputValue;
-                // startingValue -= dynamicValue;
-                // currentPath += (" - " + to_string(dynamicValue));
-                // if (closerToTarget(startingValue))
-                // {
-                //     closestIntegerReached = startingValue;
-                //     currentComputation.closestResult = startingValue;
-                //     currentComputation.path = currentPath;
-                // }
-                // if (index != listLenght) bruteForceResultRecursion(startingValue, branchingList, currentPath);
+                //SUBTRACTION
+                startingValue = inputValue;
+                startingValue -= dynamicValue;
+                if(startingPath.size() > 0) relativePath.push(" - " + to_string(dynamicValue));
+                else relativePath.push(to_string(dynamicValue));
+
+                if (closerToTarget(startingValue))
+                {
+                    closestIntegerReached = startingValue;
+                    nearestComputationToDestination.closestResult = startingValue;
+                    nearestComputationToDestination.path = relativePath;
+                }
+                if (index != 0) bruteForceResultRecursion(startingValue, branchingList, currentPath);
 
             }
             
